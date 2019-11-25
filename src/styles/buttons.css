@@ -1,0 +1,16 @@
+.btn {
+    @apply px-3;
+    @apply rounded border border-solid;
+    @apply text-center uppercase leading-loose;
+    transition: background-color ease-in-out .2s, border-bottom-color ease-in-out .2s, color ease-in-out .2s;
+}
+
+@variants colors {
+    .btn-primary {
+        @apply bg-primary-3 text-white border-primary-4;
+    }
+
+    .btn-primary:hover {
+        @apply bg-primary-4 border-primary-5;
+    }
+}

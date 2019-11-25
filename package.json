@@ -1,0 +1,38 @@
+{
+  "name": "jorge-web-playground",
+  "version": "1.0.0",
+  "description": "A repository I use to learn new things web-related (frameworks, styles, UX, etc)",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack",
+    "watch": "npm run dev -- --watch",
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "http-server ./dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgesmrr/playground-web.git"
+  },
+  "author": "Jorge Moreira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorgesmrr/playground-web/issues"
+  },
+  "homepage": "https://github.com/jorgesmrr/playground-web#readme",
+  "dependencies": {
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.1.3"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.3.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
