@@ -24,8 +24,8 @@ buildPaths.forEach(buildPath => {
     const files = fs.readdirSync(directoryPath);
 
     files.forEach(file => {
-        if (/\.(js|css)$/.test(file)) {
-            entries[buildPath + file] = buildPath + file;
+        if (/\.(js|ts|tsx)$/.test(file)) {
+            entries[buildPath + file.replace(/\.(js|ts|tsx)$/, '') + '.js'] = buildPath + file;
         }
     });
 });
@@ -42,8 +42,16 @@ module.exports = {
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js", ".json"]
+    },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: ["ts-loader"],
+                exclude: /node_modules/
+            },
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
