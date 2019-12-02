@@ -2,39 +2,16 @@ const path = require('path');
 const fs = require('fs');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const plugins = [
-    new CleanWebpackPlugin({
-        cleanOnceBeforeBuildPatterns: ['src/**', '!.gitignore'],
-    }),
-    new MiniCssExtractPlugin({
-        filename: '[name].css',
-        chunkFilename: '[name].css',
-    })
-];
-
-const buildPaths = [
-    './src/',
-];
-const entries = {};
-
-buildPaths.forEach(buildPath => {
-    const directoryPath = path.join(__dirname, buildPath);
-    const files = fs.readdirSync(directoryPath);
-
-    files.forEach(file => {
-        if (/\.(js|ts|tsx)$/.test(file)) {
-            entries[buildPath + file.replace(/\.(js|ts|tsx)$/, '') + '.js'] = buildPath + file;
-        }
-    });
-});
-
-entries['./src/styles/main'] = './src/styles/main.css';
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: entries,
+    entry: {
+        './src/bundle.js': './src/index.ts',
+        './src/styles/main': './src/styles/main.css'
+    },
     output: {
         filename: '[name]',
         path: path.resolve(__dirname, 'dist')
@@ -43,14 +20,24 @@ module.exports = {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js", ".json"]
+        extensions: ['.ts', '.js', '.vue', '.json'],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js'
+        }
     },
     module: {
         rules: [
             {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
                 test: /\.tsx?$/,
-                use: ["ts-loader"],
-                exclude: /node_modules/
+                loader: "ts-loader",
+                exclude: /node_modules/,
+                options: {
+                  appendTsSuffixTo: [/\.vue$/],
+                }
             },
             {
                 test: /\.css$/,
@@ -72,5 +59,14 @@ module.exports = {
             }
         ]
     },
-    plugins
+    plugins: [
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ['src/**', '!.gitignore'],
+        }),
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[name].css',
+        })
+    ]
 };
