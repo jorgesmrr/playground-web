@@ -1,11 +1,13 @@
 <template>
-  <button class="btn-primary">Teste</button>
+  <ul class="p-4" style="width: 250px">
+    <slot />
+  </ul>
 </template>
 
 <script>
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "Button"
+  name: "Summary"
 });
 </script>

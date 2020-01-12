@@ -1,0 +1,69 @@
+/** Delimeters **/
+
+.content {
+    @apply mx-auto px-4;
+    max-width: 1250px;
+}
+
+.content-small {
+    @apply mx-auto px-4;
+    max-width: 400px;
+}
+
+.content-medium {
+    @apply mx-auto px-4;
+    max-width: 900px;
+}
+
+/** Cards **/
+
+.card {
+    @apply rounded border border-neutral-2;
+    @apply bg-white;
+}
+
+.card .card-block {
+    @apply p-4;
+    @apply border-b border-neutral-2;
+}
+
+.card>.card-block:last-child, .card> :last-child .card-block:last-child {
+    @apply border-none;
+}
+
+.card .card-title {
+    @apply font-bold;
+}
+
+/** Alerts **/
+
+.alert {
+    @apply p-4 my-4 rounded;
+}
+
+@variants colors {
+    .alert-primary {
+        @apply text-primary-5 bg-primary-2;
+    }
+}
+
+/** Modals **/
+
+.modal {
+    @apply fixed hidden inset-0 pt-8 px-8;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal .modal-content {
+    @apply relative mx-auto;
+    max-height: 80vh;
+    max-width: 400px;
+}
+
+.modal.open {
+    @apply block;
+}
+
+.modal.open .modal-content {
+    @apply opacity-100;
+}

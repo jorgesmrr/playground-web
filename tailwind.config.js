@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 const extendedColorMapping = {
     primary: 'blue',
-    secondary: 'gray',
+    neutral: 'gray',
     info: 'teal',
     success: 'green',
     warning: 'yellow',
@@ -19,7 +19,7 @@ for (const variant in extendedColorMapping) {
         2: defaultTheme.colors[color]['300'],
         3: defaultTheme.colors[color]['500'],
         4: defaultTheme.colors[color]['700'],
-        5: defaultTheme.colors[color]['900'],
+        5: defaultTheme.colors[color]['900']
     };
 }
 
@@ -47,11 +47,13 @@ module.exports = {
                     originalRules.push(rule);
                 });
 
+                const colorVariations = Object.keys(extendedColorMapping);
+
                 let firstVariation = true;
 
                 const build = (rule, color) => {
                     const newRule = firstVariation ? rule : rule.clone();
-                    const regex = firstVariation ? /primary/g : /secondary/g;
+                    const regex = new RegExp(firstVariation ? colorVariations[0] : colorVariations[1], 'g');
                     newRule.selector = rule.selector.slice().replace(regex, color);
                     newRule.walkAtRules(innerRule => {
                         innerRule.params = innerRule.params.slice().replace(regex, color);
@@ -63,7 +65,7 @@ module.exports = {
                 }
 
                 originalRules.forEach(rule => {
-                    Object.keys(extendedColorMapping).slice(1).forEach(color => build(rule, color));
+                    colorVariations.slice(1).forEach(color => build(rule, color));
                 });
             })
         }

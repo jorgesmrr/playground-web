@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import Button from './components/Button.vue';
+import Guide from './components/Guide.vue';
 
 new Vue({
     el: '#vue-app',
-    components: {Button},
-    template: `<Button/>`
+    components: { Guide },
+    template: `<Guide/>`
 })

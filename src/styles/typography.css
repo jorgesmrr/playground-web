@@ -1,0 +1,61 @@
+/* Basics */
+
+html, body {
+    font-size: 14px;
+}
+
+body {
+    @apply text-neutral-5;
+}
+
+p {
+    /* todo em unit */
+    @apply my-2;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    /* todo em unit */
+    @apply block;
+    @apply mt-4 mb-2;
+    line-height: 1.1;
+}
+
+h6, .h6 {
+    @apply text-lg;
+}
+
+h5, .h5 {
+    @apply text-xl;
+}
+
+h4, .h4 {
+    @apply text-2xl;
+}
+
+h3, .h3 {
+    @apply text-3xl;
+}
+
+h2, .h2 {
+    @apply text-4xl;
+}
+
+h1, .h1 {
+    @apply text-5xl;
+}
+
+/** Badges **/
+
+.badge {
+    /* todo padding in em unit */
+    font-size: .75em;
+    @apply inline;
+    @apply py-1 px-2 my-4 rounded;
+    @apply text-white;
+}
+
+@variants colors {
+    .badge-primary {
+        @apply text-white bg-primary-4;
+    }
+}

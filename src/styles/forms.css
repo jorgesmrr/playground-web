@@ -1,0 +1,29 @@
+/** Basics **/
+
+input, select {
+    @apply rounded border border-neutral-2;
+    @apply px-2 py-1;
+}
+
+input:hover, select:hover {
+    @apply border-primary-3;
+}
+
+input:active, select:active {
+    @apply border-neutral-5;
+}
+
+/** Form Groups **/
+
+.form-group, .form-check, .form-radio {
+    @apply mb-4;
+    @apply block;
+}
+
+.form-group label {
+    @apply mb-2;
+}
+
+.form-group input:not([type=checkbox]):not([type=radio]), .form-group select, .form-group label {
+    @apply inline-block w-full;
+}

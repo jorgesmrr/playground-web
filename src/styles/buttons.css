@@ -1,3 +1,5 @@
+/** Basics **/
+
 .btn {
     @apply px-3;
     @apply rounded border border-solid;
@@ -9,7 +11,6 @@
     .btn-primary {
         @apply bg-primary-3 text-white border-primary-4;
     }
-
     .btn-primary:hover {
         @apply bg-primary-4 border-primary-5;
     }
