@@ -54,8 +54,39 @@
         </div>
       </GuideSection>
 
+      <GuideSection title="Input Groups">
+        <div class="input-group">
+          <span>Field</span>
+          <input type="text" />
+        </div>
+
+        <div class="input-group">
+          <span class="fas fa-edit"></span>
+          <input type="text" />
+        </div>
+
+        <div class="input-group">
+          <span>Field</span>
+          <input type="text" />
+          <span>Field</span>
+        </div>
+
+        <div class="input-group">
+          <span>Field</span>
+          <input type="text" />
+          <span>Field</span>
+          <input type="text" />
+        </div>
+      </GuideSection>
+
       <GuideSection title="Buttons">
         <button v-for="b in variations.buttons" class="btn" :class="b">Button</button>
+      </GuideSection>
+
+      <GuideSection title="Button Groups">
+        <div class="btn-group">
+          <button v-for="b in variations.buttons" class="btn" :class="b">Button</button>
+        </div>
       </GuideSection>
 
       <GuideSection title="Frames">

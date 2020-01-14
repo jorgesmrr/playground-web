@@ -15,3 +15,19 @@
         @apply bg-primary-4 border-primary-5;
     }
 }
+
+/** Button Groups **/
+
+.btn-group {
+    @apply inline-flex;
+}
+
+.btn-group .btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group .btn:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}

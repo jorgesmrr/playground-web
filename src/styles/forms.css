@@ -27,3 +27,25 @@ input:active, select:active {
 .form-group input:not([type=checkbox]):not([type=radio]), .form-group select, .form-group label {
     @apply inline-block w-full;
 }
+
+/** Input Groups **/
+
+.input-group {
+    @apply inline-flex;
+}
+
+.input-group label,
+.input-group span {
+    @apply bg-neutral-2;
+    @apply rounded;
+}
+
+.input-group :not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group :not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
