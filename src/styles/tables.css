@@ -1,0 +1,27 @@
+/** Tables **/
+
+table {
+    @apply w-full;
+}
+
+table tr {
+    @apply leading-loose;
+    @apply border-b border-neutral-2;
+}
+
+table thead tr {
+    @apply bg-neutral-3;
+    @apply font-bold;
+}
+
+table tbody tr {
+    @apply bg-neutral-1;
+}
+
+table td:first-child {
+    @apply pl-4;
+}
+
+table td:last-child {
+    @apply pr-4;
+}

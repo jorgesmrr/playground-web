@@ -1,0 +1,20 @@
+/** List Groups **/
+
+ul.list-group {
+    @apply pl-0;
+    @apply rounded border border-neutral-2 overflow-hidden;
+    list-style: none;
+}
+
+ul.list-group>li {
+    @apply px-4;
+    @apply leading-loose;
+}
+
+ul.list-group>li:not(:last-child) {
+    @apply border-b border-neutral-2;
+}
+
+ul.list-group>li.list-group-header {
+    @apply bg-neutral-2 text-neutral-5 font-bold;
+}

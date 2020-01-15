@@ -38,12 +38,12 @@
 /** Alerts **/
 
 .alert {
-    @apply p-4 my-4 rounded;
+    @apply p-4 my-4 rounded border;
 }
 
 @variants colors {
     .alert-primary {
-        @apply text-primary-5 bg-primary-2;
+        @apply text-primary-5 bg-primary-1 border-primary-2;
     }
 }
 
